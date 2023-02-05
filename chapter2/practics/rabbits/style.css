@@ -1,0 +1,29 @@
+div {
+    background-color: Black;
+    color: White;
+}
+
+.carrot {
+    
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+button {
+    position: fixed;
+    outline: none;
+    background-color: tomato;
+    color: white;
+    font-size: 32px;
+    margin: 16px 0;
+    cursor: pointer;
+    margin: auto;
+}
+
+body {
+    background-color: black;
+    text-align: center;
+}
