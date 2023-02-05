@@ -1,0 +1,46 @@
+<!-- index.html -->
+<html>
+
+<head>
+    <script>
+        function setDivSize() {
+            var divs = document.getElementsByTagName("div");
+            for (var i = 0; i < divs.length; i++) {
+                divs[i].style.height = document.documentElement.offsetHeight + "px";
+                divs[i].style.width = document.documentElement.offsetWidth + "px";
+            }
+
+            getClickPosition();
+        }
+
+        function getClickPosition() {
+            window.addEventListener("click", function (e) {
+                console.info(e.clientX, e.clientY);
+                // show pageX and pageY
+                console.info(e.pageX, e.pageY);
+
+                // alert clientX and clientY / pageX and pageY
+                alert("clientX: " + e.clientX + " - clientY: " + e.clientY + " - pageX: " + e.pageX + " - pageY: " + e.pageY);
+            })
+        }
+    </script>
+    <style>
+        .nomarl {
+            background-color: lightblue;
+            margin-top: 16px;
+        }
+        .abnormal {
+            background-color: lightgreen;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+
+<body onload="setDivSize()">
+    <div class="nomarl"></div>
+    <div class="abnormal"></div>
+    <div class="nomarl"></div>
+    <div class="nomarl"></div>
+</body>
+
+</html>
