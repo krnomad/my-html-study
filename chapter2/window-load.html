@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 브라우저는 defer 속성이 있는 스크립트(이하 defer 스크립트 또는 지연 스크립트)를 '백그라운드’에서 다운로드 합니다. 따라서 지연 스크립트를 다운로드 하는 도중에도 HTML 파싱이 멈추지 않습니다. 그리고 defer 스크립트 실행은 페이지 구성이 끝날 때까지 지연 됩니다. 
+        지연 스크립트는 페이지 생성을 절대 막지 않습니다.
+        지연 스크립트는 DOM이 준비된 후에 실행되긴 하지만 DOMContentLoaded 이벤트 발생 전에 실행됩니다.
+        defer 속성은 외부 스크립트에만 유효합니다. 그러므로 인라인 스크립트에는 사용할 수 없습니다. (src가 만드시 존재해야 함)
+        async는 이와 반대로 스크립트를 다운로드하는 도중에도 HTML 파싱을 막습니다. 그리고 스크립트가 다운로드 되면 즉시 실행됩니다.
+        즉, defer는 DOMContentLoaded 이벤트 발생 전에 실행되고, async는 DOMContentLoaded 이벤트 발생 후에 실행되는 반면 async는 이와 관계 없이 독립적으로 실행됩니다.
+    -->
+    <script src ="test.js" defer></script>
+</head>
+<body>
+    <script>
+        // only document is loaded - as soon as html page loaded 
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded called')
+        })
+
+        // after resources (css, images, etc.)
+        window.addEventListener('load', () => {
+            console.log('window loaded')
+        })
+
+        // before beforeunload
+        window.addEventListener('beforeunload', () => {
+            console.log('window beforeunload')
+        })
+
+        // resource is being unloaded
+        window.addEventListener('unload', () => {
+            console.log('window unload')
+        })
+    </script>
+</body>
+</html>

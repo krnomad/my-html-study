@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            background-color: lightcyan;
+        }
+
+        .special {
+            background-color: lightcoral;
+        }
+
+        #floating-button-up {
+            position: fixed;
+            bottom: 40px;
+            right: 200px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #3B3B3B;
+            box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+        }
+
+        #floating-button-down {
+            position: fixed;
+            bottom: 40px;
+            right: 120px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #3B3B3B;
+            box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+        }
+
+        #floating-button-speical {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #3B3B3B;
+            box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+        }
+
+        .btn {
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="floating-button-up"><p class="btn">up</p></div>
+    <div id="floating-button-down"><p class="btn">down</p></div>
+    <div id="floating-button-speical"><p class="btn">special</p></div>
+    <script>
+        let floatingButtonUp = document.getElementById('floating-button-up');
+        floatingButtonUp.addEventListener('click', function () {
+            window.scrollBy(0, -250);
+        });
+        
+        let floatingButtonDown = document.getElementById('floating-button-down');
+        floatingButtonDown.addEventListener('click', function () {
+            window.scrollBy(0, 250);
+        });
+        
+        let floatingButtonSpecial = document.getElementById('floating-button-speical');
+        floatingButtonSpecial.addEventListener('click', function () {
+            // find the special div, and move screen to it
+            let special = document.querySelector('.special');
+            special.scrollIntoView();
+        });
+    </script>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special">
+        <script>
+            const special = document.querySelector('.special');
+            special.addEventListener('click', (event) => {
+                rect = special.getBoundingClientRect();
+                console.log(special.getBoundingClientRect());
+                console.log(rect)
+                // print event page & client X Y
+                console.log(event.pageX, event.pageY);
+                console.log(event.clientX, event.clientY);
+            });
+
+        </script>
+    </div>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

@@ -17,8 +17,19 @@
         .special {
             background-color: lightcoral;
         }
+
+        .btn {
+            color: black;
+        }
+
+        aside {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
     </style>
 </head>
+
 <body>
     <div></div>
     <div></div>
@@ -28,20 +39,48 @@
     <div></div>
     <div></div>
     <div class="special">
-        <script>
-            const special = document.querySelector('.special');
-            special.addEventListener('click', (event) => {
-                rect = special.getBoundingClientRect();
-                console.log(special.getBoundingClientRect());
-                console.log(rect)
-                // print event page & client X Y
-                console.log(event.pageX, event.pageY);
-                console.log(event.clientX, event.clientY);
-            });
-
-        </script>
     </div>
     <div></div>
     <div></div>
+    <aside>
+        <button id="floating-button-up" class="btn">Up</button>
+        <button id="floating-button-down" class="btn">Down</button>
+        <button id="floating-button-speical" class="btn">Special</button>
+    </aside>
+    <script>
+        const special = document.querySelector('.special');
+        special.addEventListener('click', (event) => {
+            rect = special.getBoundingClientRect();
+            console.log(special.getBoundingClientRect());
+            console.log(rect)
+            // print event page & client X Y
+            console.log(event.pageX, event.pageY);
+            console.log(event.clientX, event.clientY);
+        });
+
+        const floatingButtonUp = document.querySelector('#floating-button-up');
+        floatingButtonUp.addEventListener('click', (event) => {
+            window.scrollBy({
+                top: -100,
+                left: 0,
+                behavior: 'smooth'
+            });
+        });
+        const floatingButtonDown = document.querySelector('#floating-button-down');
+        floatingButtonDown.addEventListener('click', (event) => {
+            window.scrollBy({
+                // top: document.body.scrollHeight,
+                top: 100, 
+                left: 0,
+                behavior: 'smooth'
+            });
+        });
+        const floatingButtonSpecial = document.querySelector('#floating-button-speical');
+        floatingButtonSpecial.addEventListener('click', (event) => {
+            special.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
